@@ -21,26 +21,79 @@ curl http://localhost:8080
 
 ## Google Cloudへのデプロイ
 
-### 前提条件
+### 🎯 推奨デプロイ方法
+
+#### Windows ユーザーの方
+**👉 `WINDOWS_SETUP_GUIDE.md`** を参照してください（ブラウザだけで完結）
+
+#### Mac/Linux ユーザーの方
+**👉 `QUICK_START.md`** を参照してください
+
+#### 詳細な手順が必要な方
+**👉 `DEPLOYMENT_GUIDE.md`** を参照してください
+
+### 簡易デプロイスクリプト
+
+#### Linux/Mac
+```bash
+./deploy.sh
+```
+
+#### Windows
+```cmd
+deploy.bat
+```
+
+### 前提条件（CLIを使う場合のみ）
 
 - Google Cloud SDKがインストールされていること
 - Google Cloudプロジェクトが作成されていること
 - Cloud Functions APIが有効になっていること
 
-### デプロイコマンド
+### デプロイコマンド（手動）
 
+#### Linux/Mac
 ```bash
 # プロジェクトIDを設定
 export PROJECT_ID="your-project-id"
 
 # デプロイ
 gcloud functions deploy get-hello \
-  --runtime python311 \
+  --gen2 \
+  --runtime=python311 \
   --trigger-http \
   --allow-unauthenticated \
-  --entry-point get_hello \
-  --region asia-northeast1 \
-  --project $PROJECT_ID
+  --entry-point=get_hello \
+  --region=asia-northeast1 \
+  --project=$PROJECT_ID
+```
+
+#### Windows (コマンドプロンプト)
+```cmd
+set PROJECT_ID=your-project-id
+
+gcloud functions deploy get-hello ^
+  --gen2 ^
+  --runtime=python311 ^
+  --trigger-http ^
+  --allow-unauthenticated ^
+  --entry-point=get_hello ^
+  --region=asia-northeast1 ^
+  --project=%PROJECT_ID%
+```
+
+#### Windows (PowerShell)
+```powershell
+$PROJECT_ID="your-project-id"
+
+gcloud functions deploy get-hello `
+  --gen2 `
+  --runtime=python311 `
+  --trigger-http `
+  --allow-unauthenticated `
+  --entry-point=get_hello `
+  --region=asia-northeast1 `
+  --project=$PROJECT_ID
 ```
 
 ### デプロイオプション
