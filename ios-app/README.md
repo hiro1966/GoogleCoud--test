@@ -35,30 +35,47 @@ struct DataRecord {
 
 ## 🚀 セットアップ
 
-### 前提条件
+### ⚠️ 重要: Xcodeプロジェクトファイルについて
 
-- macOS with Xcode 15.0以降
-- iOS 17.0以降
-- Firebase Data APIがデプロイ済み
+このリポジトリには **Xcodeプロジェクトファイル（`.xcodeproj`）は含まれていません**。
 
-### ステップ1: プロジェクトを開く
+理由:
+- ✅ 環境依存を避けるため
+- ✅ Gitでの管理を簡単にするため
+- ✅ ユーザーごとに最適なプロジェクトを作成するため
 
-1. **Xcodeを起動**
+**代わりに、Swiftのソースコードのみを提供しています。**
 
-2. **新しいプロジェクトを作成**
+### 📝 2つのセットアップ方法
+
+#### 方法1: 詳細ガイドに従う（推奨）
+
+**👉 `XCODE_PROJECT_SETUP.md` を参照してください**
+
+このファイルに、スクリーンショット付きで詳しい手順が記載されています。
+
+#### 方法2: クイックセットアップ（約8分）
+
+1. **Xcodeで新規プロジェクトを作成**
    - File → New → Project
    - iOS → App を選択
    - Product Name: `FirebaseDataApp`
-   - Interface: SwiftUI
+   - Interface: **SwiftUI** ← 重要！
    - Language: Swift
 
-3. **ファイルを追加**
+2. **デフォルトファイルを削除**
+   - ContentView.swift を削除
+   - FirebaseDataAppApp.swift を削除
+
+3. **GitHubのファイルを追加**
    
-   プロジェクトに以下のファイルをドラッグ&ドロップ：
+   `FirebaseDataApp/` フォルダから以下をドラッグ&ドロップ：
    - `Models.swift`
    - `APIClient.swift`
    - `ContentView.swift`
-   - `FirebaseDataAppApp.swift`（既存のものを置き換え）
+   - `FirebaseDataAppApp.swift`
+   
+   ✅ "Copy items if needed" にチェック
 
 ### ステップ2: API URLの設定
 
