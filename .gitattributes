@@ -1,0 +1,37 @@
+# Git属性設定
+# バッチファイルとシェルスクリプトの扱いを定義
+
+# Windowsバッチファイル (.bat, .cmd)
+# - 改行コード: CRLF固定
+# - 文字コード: Shift-JIS (CP932)
+*.bat text eol=crlf working-tree-encoding=CP932
+*.cmd text eol=crlf working-tree-encoding=CP932
+
+# シェルスクリプト (.sh)
+# - 改行コード: LF固定
+# - 文字コード: UTF-8
+*.sh text eol=lf
+
+# Markdown、テキストファイル
+# - 改行コード: 自動変換
+# - 文字コード: UTF-8
+*.md text
+*.txt text
+*.json text
+*.yaml text
+*.yml text
+
+# Python、JavaScript
+# - 改行コード: LF推奨
+# - 文字コード: UTF-8
+*.py text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+
+# バイナリファイル
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

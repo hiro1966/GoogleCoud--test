@@ -138,7 +138,7 @@ echo.
 
 REM デプロイ実行
 echo デプロイを開始します...
-echo (これには2〜5分かかる場合があります)
+echo (これには2～5分かかる場合があります)
 echo.
 
 call gcloud functions deploy firebase-data-api ^
